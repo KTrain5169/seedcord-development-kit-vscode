@@ -1,0 +1,8 @@
+minimumReleaseAgeExclude:
+  - socket@1.10.0
+permissions:
+  taze:
+    skills: true
+skills:
+  dirs:
+    - ./.agents/skills

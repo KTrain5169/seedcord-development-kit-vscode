@@ -1,0 +1,76 @@
+{
+  "Command": {
+    "scope": "typescript",
+    "prefix": "seedcordcmddef",
+    "body": [
+      "import { BuilderComponent, RegisterCommand } from '@seedcord/$1'",
+      "",
+      "@RegisterCommand()",
+      "export class $2Command extends BuilderComponent<'command'> {",
+      "    constructor() {",
+      "        super('command')",
+      "        this.instance.setName('$3').setDescription('$4')",
+      "    }",
+      "}"
+    ],
+    "include": ["**/*.ts"],
+    "exclude": ["**/node_modules/**", "**/dist/**", "**/*.d.ts", "**/*.test.ts", "**/*.spec.ts"],
+    "description": "A new seedcord command, do not put logic here. Use the slash handler snippet for that instead."
+  },
+  "Slash Route Handler": {
+    "scope": "typescript",
+    "prefix": "seedcordslashroute",
+    "body": [
+      "import { SlashHandler, SlashRoute } from '@seedcord/$1'",
+      "",
+      "@SlashRoute('$2')",
+      "export class $2Route extends SlashHandler<'$2'> {",
+      "    public override async execute(): Promise<void> {",
+      "        await this.reply('Hello from $2Route!')",
+      "    }",
+      "}"
+    ],
+    "include": ["**/*.ts"],
+    "exclude": ["**/node_modules/**", "**/dist/**", "**/*.d.ts", "**/*.test.ts", "**/*.spec.ts"],
+    "description": "A new seedcord slash route handler."
+  },
+  "Event": {
+    "scope": "typescript",
+    "prefix": "seedcordeventdef",
+    "body": [
+      "import { EventHandler, RegisterEvent } from '@seedcord/gateway'",
+      "import { Events } from 'discord.js'",
+      "",
+      "@RegisterEvent([Events.$1])",
+      "export class $2 extends EventHandler<Events.$1> {",
+      "    public async execute(): Promise<void> {",
+      "        const [event] = this.event",
+      "        // do something here!",
+      "    }",
+      "}"
+    ],
+    "include": ["**/*.ts"],
+    "exclude": ["**/node_modules/**", "**/dist/**", "**/*.d.ts", "**/*.test.ts", "**/*.spec.ts"],
+    "description": "A new seedcord event. This snippet can only be used with gateway bots."
+  },
+  "Gated Event": {
+    "scope": "typescript",
+    "prefix": "seedcordeventdef",
+    "body": [
+      "import { EventHandler, Gated, RegisterEvent, $2 } from '@seedcord/gateway'",
+      "import { Events } from 'discord.js'",
+      "",
+      "@Gated($2)",
+      "@RegisterEvent([Events.$1])",
+      "export class $3 extends EventHandler<Events.$1> {",
+      "    public async execute(): Promise<void> {",
+      "        const [event] = this.event",
+      "        // do something here!",
+      "    }",
+      "}"
+    ],
+    "include": ["**/*.ts"],
+    "exclude": ["**/node_modules/**", "**/dist/**", "**/*.d.ts", "**/*.test.ts", "**/*.spec.ts"],
+    "description": "A new seedcord event that is gated. This snippet can only be used with gateway bots."
+  }
+}

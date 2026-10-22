@@ -1,0 +1,80 @@
+{
+  "name": "seedcord-development-kit",
+  "displayName": "Seedcord Development Kit",
+  "version": "0.0.1",
+  "private": true,
+  "categories": [
+    "Other"
+  ],
+  "publisher": "lunaradev1",
+  "type": "module",
+  "main": "./dist/extension.cjs",
+  "scripts": {
+    "build": "tsdown --env.NODE_ENV production",
+    "commit": "cz",
+    "dev": "tsdown --watch ./src --env.NODE_ENV development",
+    "format": "oxfmt",
+    "lint": "oxlint --type-aware",
+    "prepare": "husky",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "pnpm run build"
+  },
+  "dependencies": {
+    "@reactive-vscode/vueuse": "^1.0.2",
+    "@sapphire/result": "^2.8.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@commitlint/cz-commitlint": "^21.2.4",
+    "@commitlint/types": "^21.2.3",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.99.0",
+    "commitizen": "^4.3.2",
+    "husky": "^9.1.7",
+    "inquirer": "9",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "oxlint-tsgolint": "^7.0.2004",
+    "reactive-vscode": "^1.0.2",
+    "socket": "^1.10.0",
+    "taze": "^21.3.0",
+    "tsdown": "^0.15.11",
+    "typescript": "^5.9.3"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "seedcord.openLogger",
+        "title": "Open Logger",
+        "category": "Seedcord"
+      },
+      {
+        "command": "seedcord.runDev",
+        "title": "Run Dev",
+        "category": "Seedcord"
+      }
+    ],
+    "configuration": {
+      "properties": {
+        "seedcord.stopBeingAnnoying": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether or not to show a message once when the extension starts if it doesn't find seedcord in the current workspace"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/seedcord.snippets.json"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "engines": {
+    "vscode": "^1.99.0"
+  }
+}
