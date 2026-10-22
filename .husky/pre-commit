@@ -1,0 +1,7 @@
+bun format
+bun check
+
+# Formatting lmao.
+echo
+echo "----------------------------------------"
+echo

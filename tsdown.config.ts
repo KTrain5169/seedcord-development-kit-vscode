@@ -6,7 +6,5 @@ export default defineConfig({
   target: 'node22',
   minify: true,
   sourcemap: true,
-  external: [
-    'vscode',
-  ],
+  external: ['vscode'],
 })

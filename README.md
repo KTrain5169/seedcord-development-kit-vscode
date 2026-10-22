@@ -13,7 +13,7 @@ A VS Code extension created with [reactive-vscode](https://kermanx.com/reactive-
 
 - Open this repository in VS Code.
 - Run `pnpm install` to install the dependencies.
-- Run `pnpm dev` to compile the extension and watch for changes.  
+- Run `pnpm dev` to compile the extension and watch for changes.
 - Press `F5` to open a new window with your extension loaded.
 - Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
 - Set breakpoints in your code inside `src/extension.ts` to debug your extension.

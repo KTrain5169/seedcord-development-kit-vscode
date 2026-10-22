@@ -14,5 +14,5 @@ const needsSeedcordCommands: ExtensionCommand[] = []
 
 export default {
   dontNeedSeedcordCommands,
-  needsSeedcordCommands
+  needsSeedcordCommands,
 }
