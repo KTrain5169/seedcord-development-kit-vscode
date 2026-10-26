@@ -3,9 +3,7 @@ import { resolveCommand } from 'package-manager-detector/commands'
 import { workspace } from 'vscode'
 
 function getConfiguredPackageManager() {
-  return workspace
-    .getConfiguration('npm')
-    .get<'auto' | 'npm' | 'yarn' | 'pnpm' | 'bun'>('packageManager', 'auto')
+  return workspace.getConfiguration('npm').get<'auto' | 'npm' | 'yarn' | 'pnpm' | 'bun'>('packageManager', 'auto')
 }
 
 export async function getDevCommand() {
