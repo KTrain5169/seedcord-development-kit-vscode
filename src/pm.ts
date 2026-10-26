@@ -2,10 +2,14 @@ import type { Agent } from 'package-manager-detector'
 import { resolveCommand } from 'package-manager-detector/commands'
 import { workspace } from 'vscode'
 
-export async function getDevCommand() {
-  const configured = workspace
+function getConfiguredPackageManager() {
+  return workspace
     .getConfiguration('npm')
     .get<'auto' | 'npm' | 'yarn' | 'pnpm' | 'bun'>('packageManager', 'auto')
+}
+
+export async function getDevCommand() {
+  const configured = getConfiguredPackageManager()
 
   const workspaceFolder = workspace.workspaceFolders?.[0]
 
@@ -40,9 +44,7 @@ export async function getDevCommand() {
 }
 
 export async function getBuildCommand() {
-  const configured = workspace
-    .getConfiguration('npm')
-    .get<'auto' | 'npm' | 'yarn' | 'pnpm' | 'bun'>('packageManager', 'auto')
+  const configured = getConfiguredPackageManager()
 
   const workspaceFolder = workspace.workspaceFolders?.[0]
 
@@ -77,9 +79,7 @@ export async function getBuildCommand() {
 }
 
 export async function getCodegenCommand() {
-  const configured = workspace
-    .getConfiguration('npm')
-    .get<'auto' | 'npm' | 'yarn' | 'pnpm' | 'bun'>('packageManager', 'auto')
+  const configured = getConfiguredPackageManager()
 
   const workspaceFolder = workspace.workspaceFolders?.[0]
 
